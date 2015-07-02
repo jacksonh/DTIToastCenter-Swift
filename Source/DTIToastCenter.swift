@@ -85,7 +85,7 @@ public class DTIToastCenter: NSObject {
         self.toasts.removeAtIndex(0)
         UIApplication.sharedApplication().keyWindow!.addSubview(self.toastView)
 
-        var transform: CGAffineTransform = CGAffineTransformMakeScale(2.0, 2.0)
+        var transform = CGAffineTransformIdentity
         if (self.iosVersionLessThan8()) {
             transform = CGAffineTransformConcat(self.rotationFromOrientation(), transform)
         }
@@ -94,7 +94,7 @@ public class DTIToastCenter: NSObject {
 
         UIView.animateWithDuration(0.15, animations: { () -> Void in
             self.toastView.alpha = 1;
-            var transform: CGAffineTransform = CGAffineTransformMakeScale(1.0, 1.0)
+            var transform = CGAffineTransformIdentity
             if (self.iosVersionLessThan8()) {
                 transform = CGAffineTransformConcat(self.rotationFromOrientation(), transform)
             }
