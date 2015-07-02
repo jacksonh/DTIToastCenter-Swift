@@ -241,7 +241,7 @@ extension DTIToastCenter {
       * calculate available frame depending of keyboard visibility
       */
     private func availableScreenFrame(#orientation: UIInterfaceOrientation?) -> CGRect {
-        var res:CGRect = self.keyboardFrame == CGRectZero ? UIScreen.mainScreen().bounds : self.subtractKeyBoardFrameToWindowFrame(windowFrame: UIScreen.mainScreen().bounds, keyboardFrame: self.keyboardFrame)
+        var res:CGRect = self.keyboardFrame == CGRectZero ? CGRectMake (0.0, 0.0, CGRectGetWidth (UIScreen.mainScreen().bounds), CGRectGetHeight (UIScreen.mainScreen().bounds) / 2.0) : self.subtractKeyBoardFrameToWindowFrame(windowFrame: UIScreen.mainScreen().bounds, keyboardFrame: self.keyboardFrame)
         if (orientation != nil) {
             // we are in rotating event - keyboard is always hidden
             res = UIScreen.mainScreen().bounds.swip()
